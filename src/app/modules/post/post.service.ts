@@ -30,7 +30,7 @@ const getPostsFromDB = async (query: Record<string, unknown>) => {
 
   const postIds = posts.map((post) => post._id);
   const comments = await Comment.find({ postId: { $in: postIds } }).populate("userId");
-
+// fix : Convert IDs to strings for comparison
   const postsWithComments = posts.map((post) => ({
     ...post,
     comments: comments.filter(
