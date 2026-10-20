@@ -74,7 +74,7 @@ const confirmationService = (transactionId, status, email) => __awaiter(void 0, 
             Payment ${status === 'success' ? 'Successful' : 'Canceled'}
           </h1>
           <a href="${config_1.default.client_url}" class="redirect-link ${status === 'success' ? 'success-link' : 'cancel-link'}">
-            ${status === 'success' ? 'Go to Dashboard' : 'Retry Payment'}
+            ${status === 'success' ? 'Go to Dashboard ' : 'Retry Payment'}
           </a>
         </div>
       </body>

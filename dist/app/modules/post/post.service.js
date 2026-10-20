@@ -37,7 +37,7 @@ const getPostsFromDB = (query) => __awaiter(void 0, void 0, void 0, function* ()
     const meta = yield postQuery.countTotal();
     const postIds = posts.map((post) => post._id);
     const comments = yield comment_model_1.Comment.find({ postId: { $in: postIds } }).populate("userId");
-    const postsWithComments = posts.map((post) => (Object.assign(Object.assign({}, post), { comments: comments.filter((comment) => comment.postId.equals(post._id)) })));
+    const postsWithComments = posts.map((post) => (Object.assign(Object.assign({}, post), { comments: comments.filter((comment) => String(comment.postId) === String(post._id)) })));
     return {
         meta,
         result: postsWithComments,

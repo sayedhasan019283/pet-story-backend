@@ -16,7 +16,7 @@ const globalErrorHandler = (error, req, res, next) => {
     let errorMessages = [
         {
             path: '',
-            message: '' || 'Something went wrong',
+            message: 'Something went wrong',
         },
     ];
     if (error instanceof zod_1.ZodError) {

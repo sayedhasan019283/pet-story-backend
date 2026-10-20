@@ -33,7 +33,9 @@ const getPostsFromDB = async (query: Record<string, unknown>) => {
 
   const postsWithComments = posts.map((post) => ({
     ...post,
-    comments: comments.filter((comment) => comment.postId.equals(post._id)),
+    comments: comments.filter(
+  (comment) => String(comment.postId) === String(post._id),
+),
   }));
 
   return {
